@@ -58,7 +58,21 @@ def serialize_list(items: List) -> List:
     """
     if not items or items is None:
         return []
-    return [x.to_dict() for x in items]
+    widgets = [x.to_dict() for x in items]
+    for widget in widgets:
+        widget["background_colour"] = dict(
+            zip(
+                ["r", "g", "b", "a"],
+                [int(rgba) for rgba in widget["background_colour"].split(",")],
+            )
+        )
+        widget["content_background_colour"] = dict(
+            zip(
+                ["r", "g", "b", "a"],
+                [int(rgba) for rgba in widget["content_background_colour"].split(",")],
+            )
+        )
+    return widgets
 
 
 # add specific Exception handlers before this, if needed
