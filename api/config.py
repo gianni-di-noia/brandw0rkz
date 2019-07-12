@@ -34,6 +34,7 @@ class DevelopmentConfig(Config):
     )  # set the URI to call get_pg_url() once you have `creds.ini` setup
     SQLALCHEMY_DATABASE_URI = url
     DEBUG = True
+    LANGUAGES = {"en_GB": "English", "it_IT": "Italian"}
 
 
 class ProductionConfig(Config):
@@ -51,6 +52,7 @@ class ProductionConfig(Config):
         "DATABASE_URL"
     )  # you may do the same as the development config but this currently gets the database URL from an env variable
     DEBUG = False
+    LANGUAGES = {"en_GB": "English", "it_IT": "Italian"}
 
 
 class DockerDevConfig(Config):
@@ -68,6 +70,7 @@ class DockerDevConfig(Config):
         "postgresql://testusr:password@postgres/testdb"
     )  # hard coded URL, assuming you are using the docker-compose setup
     DEBUG = True
+    LANGUAGES = {"en_GB": "English", "it_IT": "Italian"}
 
 
 # way to map the value of `FLASK_ENV` to a configuration

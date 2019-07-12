@@ -4,6 +4,7 @@ import logging
 from flask import Flask, request
 from flask_cors import CORS
 from flask_migrate import Migrate
+from flask_babel import Babel
 from sqlalchemy_utils import create_database, database_exists
 
 from api.config import config
@@ -76,6 +77,13 @@ def create_app(test_config=None):
 
     db.init_app(app)  # initialize Flask SQLALchemy with this flask app
     Migrate(app, db)
+
+    babel = Babel(app)
+
+    @babel.localeselector
+    def get_locale():
+        return "it_IT"
+        # return request.accept_languages.best_match(app.config["LANGUAGES"].keys())
 
     # import and register blueprints
     from api.views import main
