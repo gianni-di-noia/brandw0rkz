@@ -1,5 +1,5 @@
-# Our docker-compose file uses Dockerfile-dev instead of Dockerfile
-FROM python:3.7
+# Our docker-compose file uses dev.Dockerfile instead of Dockerfile
+FROM python:3.7.3
 LABEL maintainer "Timothy Ko <tk2@illinois.edu>"
 
 COPY . /app

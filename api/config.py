@@ -1,6 +1,6 @@
 """
 This file holds Configuration options. The Development config looks for a creds.ini file or defaults to the normal url. 
-DockerDevConfig is used when the env variable FLASK_ENV=docker, which is currently used in Dockerfile-dev and thus,
+DockerDevConfig is used when the env variable FLASK_ENV=docker, which is currently used in dev.Dockerfile and thus,
 docker-compose. Production is used in Heroku as well as Zeit now. You may change these however you want.
 
 DO NOT HARD CODE YOUR PRODUCTION URLS EVER. Either use creds.ini or use environment variables.
@@ -58,7 +58,7 @@ class DockerDevConfig(Config):
     Docker Development Configuration
 
     Under the assumption that you are using the provided docker-compose setup, 
-    which uses the `Dockerfile-dev` setup. The container will have
+    which uses the `dev.Dockerfile` setup. The container will have
     the environment variable `FLASK_ENV=docker` to enable this configuration.
     This will then set up the database with the following hard coded
     credentials. 
